@@ -5,16 +5,25 @@ import {NavLink} from "react-router-dom";
 const Navbar = () => {
     return (
         <nav className={classes.nav}>
-            <div className={`${classes.item} ${classes.active}`}>
-                <NavLink to="/profile" activeClassName={classes.active}>Profile</NavLink>
+            <div className={`row`}>
+                <div className="col-12">
+                    <div className="list-group" id="list-tab" role="tablist">
+                        <NavLink activeClassName={`active`} className={`list-group-item list-group-item-action`}
+                                 id="list-home-list" data-bs-toggle="list" role="tab" aria-controls="profile"
+                                 to="/profile">Profile</NavLink>
+                        <NavLink activeClassName={`active`} className={`list-group-item list-group-item-action`}
+                                 id="list-home-list" data-bs-toggle="list" role="tab" aria-controls="dialogs" to="/dialogs">Messages</NavLink>
+                        <NavLink activeClassName={`active`} className={`list-group-item list-group-item-action`}
+                                 id="list-home-list" data-bs-toggle="list" role="tab" aria-controls="news" to='/news'>News</NavLink>
+                        <NavLink activeClassName={`active`} className={`list-group-item list-group-item-action`}
+                                 id="list-home-list" data-bs-toggle="list" role="tab" aria-controls="music" to='/music'>Music</NavLink>
+                        <NavLink activeClassName={`active`} className={`list-group-item list-group-item-action`}
+                                 id="list-home-list" data-bs-toggle="list" role="tab" aria-controls="users" to='/users'>Users</NavLink>
+                        <NavLink activeClassName={`active`} className={`list-group-item list-group-item-action`}
+                                 id="list-home-list" data-bs-toggle="list" role="tab" aria-controls="settings" to='/settings'>Settings</NavLink>
+                    </div>
+                </div>
             </div>
-            <div className={classes.item}>
-                <NavLink to="/dialogs" activeClassName={classes.active}>Messages</NavLink>
-            </div>
-            <div className={classes.item}> <NavLink to='/news' activeClassName={classes.active}>News</NavLink> </div>
-            <div className={classes.item}> <NavLink to='/music' activeClassName={classes.active}>Music</NavLink> </div>
-            <br />
-            <div className={classes.item}> <NavLink to='/settings' activeClassName={classes.active}>Settings</NavLink> </div>
         </nav>
     )
 }

@@ -23,6 +23,7 @@ div {
     text-decoration: none;
     text-transform: uppercase;
     cursor: pointer;
+
 }
 :-webkit-any-link {
     color: -webkit-link;
@@ -33,10 +34,14 @@ div {
 .btn-liquid .inner {
     position: relative;
     z-index: 2;
+
 }
 
 canvas {
     display: inline-block;
+
+    /*padding: 200px;*/
+    /*width: 500px;*/
 }
 
 .inner {

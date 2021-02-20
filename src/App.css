@@ -11,6 +11,22 @@
     /*grid-gap: 10px;*/
 }
 
+body, html {
+    height: 100%;
+}
+
+html body {
+    background-image:  url("https://wow.zamimg.com/uploads/blog/images/20516-afterlives-ardenweald-4k-desktop-wallpapers.jpg");
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
 
 .app-wrapper-content {
     grid-area: c;

@@ -8,18 +8,23 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import {BrowserRouter, Route} from "react-router-dom";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import Users from "./components/Users/Users";
+import UsersContainer from "./components/Users/Users.container";
 
 
 function App(props) {
     return (
-        <BrowserRouter>
+
             <div className='app-wrapper'>
 
                 <Header/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
-                    <Route path='/dialogs' render={() => <Dialogs state={props.state.dialogs} dispatch={props.dispatch}/>} />
-                    <Route path='/profile' render={() => <Profile store={props.state.profile} dispatch={props.dispatch}/>}/>
+                    <Route path='/dialogs' render={() => <DialogsContainer />} />
+                    {/*{console.log(props.store)}*/}
+                    <Route path='/profile' render={() => <Profile />}/>
+                    <Route path='/users' render={() => <UsersContainer />}/>
                     <Route path='/news' component={News}/>
                     <Route path='/music' component={Music} />
                     <Route path='/settings' component={Settings}/>
@@ -28,7 +33,6 @@ function App(props) {
                 </div>
 
             </div>
-        </BrowserRouter>
     );
 }
 

@@ -2,35 +2,34 @@ import React from "react";
 import classes from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogsItem";
 import Message from "./Message/Message";
-// import {updateNewMessageText} from "../../redux/state";
-import {updateNewMessageText, addMessageActionCreator} from "../../redux/dialogs-reducer";
 
 const Dialogs = (props) => {
+    // console.log(props.state);
     let createNewMessage = React.createRef();
-    let messages = props.state.dialogMessagesData.map(value => <Message message={value.message} id={value.id}/>);
-
+    let messages = props.dialogs.dialogMessagesData.map(value => <Message message={value.message} key={value.id} id={value.id}/>);
 
     let addMessage = () => {
-        props.dispatch(addMessageActionCreator());
+        props.addMessage();
     }
 
     let updateMessage = (e) => {
         let text = e.target.value;//createNewMessage.current.value;
-        props.dispatch(updateNewMessageText(text));
+        props.updateMessage(text);
     }
 
     return (
         <div className={classes.dialogs}>
             <div className={classes.dialogsItems}>
-                {props.state.dialogData.map((value => <DialogItem name={value.name} id={value.id}/>))}
+                {props.dialogs.dialogData.map((value => <DialogItem name={value.name} key={value.id} id={value.id}/>))}
             </div>
             <div className={classes.messages}>
-                {messages.filter((value, index, array) => index > array.length - 6)}
+                {messages.filter((value, index) => index > messages.length - 6)}
+                {/*{messages}*/}
             </div>
             <div>
-                <textarea ref={createNewMessage} onChange={updateMessage} value={props.state.newMessage} placeholder='Enter your message'/>
+                <textarea ref={createNewMessage} onChange={updateMessage} value={props.dialogs.newMessage} placeholder='Enter your message'/>
                 <br />
-                <button onClick={addMessage}>Add</button>
+                <button className={`btn btn-outline-primary`} onClick={addMessage}>Add</button>
             </div>
         </div>
     )
